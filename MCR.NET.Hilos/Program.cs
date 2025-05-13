@@ -30,6 +30,8 @@ namespace MCR.NET.Hilos
 
         static void EjecutaMetodoDesdeHilo()
         {
+            // Se recomienda utilizar una variable para detener el hilo
+            // Abort() detiene el hilo inesperadamente lo que puede provocar un hilo corrupto
             while (!stopped)
             {
                 Console.WriteLine("Corriendo..." + stopped);
