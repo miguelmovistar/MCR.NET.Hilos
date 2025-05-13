@@ -23,10 +23,18 @@ namespace MCR.NET.Hilos
             }));
 
             thread.Start();
-            Console.WriteLine("Presione una tecla para salir.");
-            Console.ReadKey();
-            stopped = true;
+            Console.WriteLine("Presione ENTER para salir.");
+
+            ConsoleKeyInfo info = Console.ReadKey(true);
+            if (info.Key == ConsoleKey.Enter) 
+            {
+                Console.WriteLine("stopped pasará a true.");
+                stopped = true;
+            }
+            
             thread.Join();
+
+            
         }
     }
 }
