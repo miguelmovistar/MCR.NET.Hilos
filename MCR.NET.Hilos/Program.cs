@@ -10,7 +10,7 @@ namespace MCR.NET.Hilos
     {
         static void Main(string[] args)
         {
-            //
+            // Dos
         }
     }
 }
