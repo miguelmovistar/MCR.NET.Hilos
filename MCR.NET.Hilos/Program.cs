@@ -9,18 +9,11 @@ namespace MCR.NET.Hilos
 {
     internal class Program
     {
+        static bool stopped = false;
 
         static void Main(string[] args)
         {
-
-            bool stopped = false;
-            Thread thread = new Thread(new ThreadStart(() => {
-                while (!stopped)
-                {
-                    Console.WriteLine("Corriendo..." + stopped);
-                    Thread.Sleep(1000);
-                }
-            }));
+            Thread thread = new Thread(new ThreadStart(EjecutaMetodoDesdeHilo));
 
             thread.Start();
             Console.WriteLine("Presione ENTER para salir.");
@@ -33,8 +26,15 @@ namespace MCR.NET.Hilos
             }
             
             thread.Join();
+        }
 
-            
+        static void EjecutaMetodoDesdeHilo()
+        {
+            while (!stopped)
+            {
+                Console.WriteLine("Corriendo..." + stopped);
+                Thread.Sleep(1000);
+            }
         }
     }
 }
